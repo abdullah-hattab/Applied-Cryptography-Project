@@ -22,7 +22,7 @@ metadata, or to the claimed sender — is detected and refused, and a replayed
 object is rejected as stale.
 
 The design decisions and the reasoning behind them are in
-[`docs/design-report.md`](docs/design-report.md). The byte-level formats are
+[`design-report.pdf`](design-report.pdf). The byte-level formats are
 in [`securevault/formats.py`](securevault/formats.py), documented field by
 field.
 
@@ -122,8 +122,8 @@ The numbers in the report come from these scripts, run on the machine the
 report describes. Re-run them on your own hardware rather than quoting ours.
 
 ```bash
-python3 bench/bench.py       # Argon2id: ours vs the reference implementation
-python3 bench/bench_ec.py    # P-256 vs finite-field Diffie-Hellman
+python3 tools/bench.py       # Argon2id: ours vs the reference implementation
+python3 tools/bench_ec.py    # P-256 vs finite-field Diffie-Hellman
 ```
 
 ## A note on the work factor
@@ -178,4 +178,4 @@ Section 4 of the design report accounts for this against the 70% rule.
 
 ## AI usage
 
-Declared in full in section 6 of `docs/design-report.md`.
+Declared in full in section 6 of `/design-report.pdf`.

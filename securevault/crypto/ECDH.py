@@ -1,7 +1,7 @@
 
 from __future__ import annotations
 
-import P256
+from . import P256
 
 
 def shared_secret(private_key: int, peer_public_key: P256.Point) -> bytes:

@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+
 # BLAKE2b processes data using 64-bit words.
 # MASK_64 keeps arithmetic operations within 64 bits.
 # IV provides the fixed initialization constants.

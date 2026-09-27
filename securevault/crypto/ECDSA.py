@@ -1,9 +1,9 @@
-
 from __future__ import annotations
-import P256
-import params
-from blake2b import blake2b
-SIGNATURE_BYTES = 2 * P256.FIELD_BYTES      # r || s, 64 bytes
+from . import P256
+from .. import params
+from .blake2b import blake2b
+
+SIGNATURE_BYTES = 2 * P256.FIELD_BYTES  # r || s, 64 bytes
 
 
 class InvalidSignature(Exception):
@@ -11,7 +11,6 @@ class InvalidSignature(Exception):
 
 
 def message_digest(message: bytes) -> bytes:
-
     return blake2b(message, digest_size=32, person=params.LABEL_SIG_DIGEST)
 
 
@@ -20,7 +19,6 @@ def _blake2b_mac(key: bytes, data: bytes) -> bytes:
 
 
 def _bits2int(data: bytes, qlen: int) -> int:
-
     value = int.from_bytes(data, "big")
     excess = len(data) * 8 - qlen
     return value >> excess if excess > 0 else value
@@ -28,7 +26,6 @@ def _bits2int(data: bytes, qlen: int) -> int:
 
 def generate_k(q: int, private_key: int, digest: bytes, mac=_blake2b_mac,
                mac_length: int = 32):
-
     qlen = q.bit_length()
     octet_length = (qlen + 7) // 8
 
@@ -62,7 +59,6 @@ def generate_k(q: int, private_key: int, digest: bytes, mac=_blake2b_mac,
 def sign_digest(private_key: int, digest: bytes, *, k: int = None,
                 low_s: bool = True, mac=_blake2b_mac,
                 mac_length: int = 32) -> bytes:
-
     if not 1 <= private_key < P256.N:
         raise ValueError("private key out of range")
 
@@ -95,7 +91,6 @@ def sign(private_key: int, message: bytes) -> bytes:
 
 def verify_digest(public_key: P256.Point, digest: bytes,
                   signature: bytes) -> bool:
- 
     if len(signature) != SIGNATURE_BYTES:
         return False
 

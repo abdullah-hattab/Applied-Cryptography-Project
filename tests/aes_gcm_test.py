@@ -11,8 +11,8 @@ import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-import gcm  # noqa: E402
-from aes import AES128, SBOX, INV_SBOX, key_expansion  # noqa: E402
+from securevault.crypto import gcm  # noqa: E402
+from securevault.crypto.aes import AES128, SBOX, INV_SBOX, key_expansion  # noqa: E402
 
 
 # ------------------------------------------------------------------ AES core

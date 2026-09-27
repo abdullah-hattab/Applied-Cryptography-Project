@@ -7,8 +7,8 @@ import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-import ECDH, ECDSA, P256
-from P256 import INFINITY, Point
+from securevault.crypto import ECDH, ECDSA, P256  # noqa: E402
+from securevault.crypto.P256 import INFINITY, Point  # noqa: E402
 
 # RFC 6979 Appendix A.2.5 -- the P-256 example key.
 RFC6979_PRIVATE = 0xC9AFA9D845BA75166B5C215767B1D6934E50C3DB36E89B127B8A622B120F6721

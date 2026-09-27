@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from aes import AES128, BLOCK_SIZE
+from securevault.crypto.aes import AES128, BLOCK_SIZE
 
 TAG_SIZE = 16
 NONCE_SIZE = 12          # 96 bits: the only length GCM treats without hashing

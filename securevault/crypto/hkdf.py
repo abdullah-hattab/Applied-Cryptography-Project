@@ -1,3 +1,4 @@
+from __future__ import annotations
 from .blake2b import blake2b
 
 

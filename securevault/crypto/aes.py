@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+
 AES_POLY = 0x11B
 BLOCK_SIZE = 16
 
